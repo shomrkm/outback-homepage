@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="製品情報">
+  <main>
+    <h1>製品情報</h1>
+    <section class="products">
+      <p>TODO: ここに製品情報を書いていくよ</p>
+    </section>
+  </main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 2rem;
+		max-width: calc(100% - 16rem);
+		line-height: 1.6;
+	}
+  h1 {
+		font-size: 2rem;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+    padding: 1rem;
+    margin-bottom: 2rem;
+  }
+  .products {
+    display: flex;
+    justify-content: center;
+  }
+</style>

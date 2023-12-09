@@ -8,7 +8,7 @@ const {frontmatter} = Astro.props;
       <h1>{frontmatter.name}</h1>
       <p>{frontmatter.description}</p>
       <p>価格: {frontmatter.price}</p>
-      <img src={frontmatter.image} alt={frontmatter.name}>
+      <img src={frontmatter.image} alt={frontmatter.name} width="500px">
     </section>
     <section>
       <slot />

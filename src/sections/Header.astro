@@ -1,11 +1,12 @@
 ---
+import BearLogo from '../components/shared/BearLogo.astro'
 ---
 
 <nav class="header">
   <div class="header-logo">
-    <h1>
-      <a href="/">OUTBACK</a>
-    </h1>
+      <a href="/">
+        <BearLogo /> OUTBACK
+      </a>
   </div>
   <div class="nav-menu">
     <li class="nav-menu-item">
@@ -18,12 +19,6 @@
 </nav>
 
 <style>
-  h1 {
-    font-size: 22px;
-  }
-  a {
-    text-decoration: none;
-  }
   .header {
     display: flex;
     justify-content: start;
@@ -36,10 +31,15 @@
     width: 100vw;
     z-index: 1000;
   }
-  .header-logo {
-    font-size: 2rem;
+  .header-logo a {
     font-weight: bold;
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
     padding: 1rem;
+    gap: 1rem;
+    color: #745030;
   }
   .nav-menu {
     display: flex;

@@ -1,0 +1,32 @@
+---
+import Layout from "./Layout.astro";
+const {frontmatter} = Astro.props;
+---
+<Layout title={frontmatter.name}>
+  <main>
+    <section class="product-description">
+      <h1>{frontmatter.name}</h1>
+      <p>{frontmatter.description}</p>
+      <p>価格: {frontmatter.price}</p>
+      <img src={frontmatter.image} alt={frontmatter.name}>
+    </section>
+    <section>
+      <slot />
+    </section>
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+		padding: 2rem;
+		max-width: calc(100% - 16rem);
+		line-height: 1.6;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  .product-description {
+    margin-bottom: 2rem;
+  }
+</style>

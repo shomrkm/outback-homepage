@@ -48,26 +48,26 @@
     gap: 2rem;
     margin-right: 4rem;
   }
-  .nav-menu-item {
+  .nav-menu-item a {
     font-weight: bold;
     text-decoration: none;
-  }
-  .nav-menu-item:hover {
-    text-decoration: underline red;
-    text-decoration-thickness: 4px;
-  }
-  .nav-menu-item a {
     position: relative;
     display: inline-block;
     text-decoration: none;
   }
-  .nav-menu-item a:hover::after {
+  .nav-menu-item a::after {
     content: '';
     position: absolute;
     left: 0;
     right: 0;
     bottom: -10px;
-    height: 4px;
+    height: 2px;
     background-color: #745030;
+    transform: scale(0,1);
+    transition: 0.3s;
+    transform-origin: left top;
+  }
+  .nav-menu-item a:hover::after {
+    transform: scale(1,1);
   }
 </style>

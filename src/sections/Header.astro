@@ -1,0 +1,73 @@
+---
+---
+
+<nav class="header">
+  <div class="header-logo">
+    <h1>
+      <a href="./">OUTBACK</a>
+    </h1>
+  </div>
+  <div class="nav-menu">
+    <li class="nav-menu-item">
+      <a href="./">商品情報</a>
+    </li>
+      <li class="nav-menu-item">
+        <a href="./about">会社情報</a>
+      </li>
+  </div>
+</nav>
+
+<style>
+  h1 {
+    font-size: 22px;
+  }
+  a {
+    text-decoration: none;
+  }
+  .header {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    background-color: #f2e4cd;
+    position: fixed;
+    top: 0;
+    left 0;
+    height: 6rem;
+    width: 100vw;
+    z-index: 1000;
+  }
+  .header-logo {
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 1rem;
+  }
+  .nav-menu {
+    display: flex;
+    margin-left: auto;
+    list-style-type: none;
+    gap: 2rem;
+    margin-right: 4rem;
+  }
+  .nav-menu-item {
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .nav-menu-item:hover {
+    text-decoration: underline red;
+    text-decoration-thickness: 4px;
+  }
+  .nav-menu-item a {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+  }
+  .nav-menu-item a:hover::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -10px;
+    height: 4px;
+    background-color: #745030;
+  }
+</style>

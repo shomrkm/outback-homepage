@@ -1,0 +1,129 @@
+---
+import Layout from '../layouts/Layout.astro';
+import InfoListItem from '../components/shared/InfoListItem.astro';
+import InfoTitle from '../components/shared/InfoTitle.astro';
+---
+
+<Layout title="有限会社 アウトバックのご案内">
+  <main>
+    <h1>有限会社 アウトバックのご案内</h1>
+    <section class="profile">
+      <InfoTitle
+        title="会社概要"
+        sub="Company profile"
+      />
+      <ul>
+        <InfoListItem
+          title="社名"
+          content="有限会社 アウトバック (英: OUTBACK TRADING COMPANY LTD.)"
+        />
+        <InfoListItem
+          title="代表取締役"
+          content="藤村正樹 / Fujimura Masaki"
+        />
+        <InfoListItem
+          title="資本金"
+          content="300 万円"
+        />
+        <InfoListItem
+          title="所在地"
+          content={[
+            "〒020-0401 岩手県盛岡市手代森16-27-1",
+            "(英: 16-27-1 Morioka, Iwate 020-0401)",
+          ]}
+        />
+        <InfoListItem
+          title="連絡先"
+          content={[
+            "TEL: 019-696-4647",
+            "FAX: 019-696-4678",
+            "MAIL: 019-696-4678",
+          ]}
+        />
+        <InfoListItem
+          title="設立"
+          content={[
+            "1989年7月: 「アウトバック」設立",
+            "1989年8月: 「アウトバック」法人登記"
+          ]}
+        />
+        <InfoListItem
+            title="モットー"
+            content="「自然」と「人間」が友達になるお手伝をめざしています。"
+        />
+        <InfoListItem />
+      </ul>
+    </section>
+    <section class="operations-and-activities">
+      <InfoTitle
+        title="主な業務及び活動"
+        sub="Operations and Activities"
+      />
+      <ul>
+        <InfoListItem
+          title="野生動物対策部門"
+          content={[
+            "野生動物被害防除機器の輸入・卸・販売",
+            "野生動物（特にクマ）の被害防除法や保護管理策の啓蒙・普及、講演、レクチャーなど" ]}
+        />
+        <InfoListItem
+          title="アウトドア部門"
+          content={[
+            "アウトドア用品の輸入・卸・販売",
+            "職人の技が光る手作りの逸品の販売・普及" ]}
+        />
+        <InfoListItem
+          title="セキュリティー部門"
+          content={[
+            "アウトドア用品の輸入・卸・販売",
+            "セキュリティーやサバイバル関連商品の輸入・卸・販売" ]}
+        />
+        <InfoListItem />
+      </ul>
+    </section>
+    <section class="history">
+      <InfoTitle
+        title="歴史"
+        sub="History"
+      />
+      <ul>
+        <InfoListItem
+          title="2001年"
+          content="「特定非営利活動法人日本ツキノワグマ研究所」の法人会員に登録。"
+        />
+        <InfoListItem
+          title="200X年10月"
+          content="「財団法人知床財団」の法人年間会員に登録。"
+        />
+        <InfoListItem
+          title="2004年8月"
+          content="「北陸地域野生鳥獣対策ネットワーク」の賛助会員に登録。"
+        />
+        <InfoListItem />
+      </ul>
+    </section>
+  </main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 2rem;
+		max-width: calc(100% - 16rem);
+		line-height: 1.6;
+	}
+	h1 {
+		font-size: 2rem;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+    padding: 1rem;
+    margin-bottom: 2rem;
+  }
+  .profile, .operations-and-activities, .history {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+</style>

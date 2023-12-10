@@ -1,9 +1,8 @@
 ---
 layout: ../../layouts/ProductLayout.astro
 name: 'カウンターアソールト'
-pubDate: 2022-07-01
 description: '元祖・熊撃退スプレー「カウンターアソールト（CA230）」'
-price: ¥14,850
+price: 14850
 image: "/products/CA230.gif"
 ---
 

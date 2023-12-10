@@ -1,12 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
+const products = await Astro.glob("./products/*.md");
 ---
 
 <Layout title="製品情報">
   <main>
     <h1>製品情報</h1>
     <section class="products">
-      <li><a href="/products/product-1">カウンターアソールト</a></li>
+      {
+        products.map(product => (
+          <li><a href={product.url}>{product.frontmatter.name}</a></li>
+        ))
+      }
     </section>
   </main>
 </Layout>

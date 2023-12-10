@@ -1,13 +1,21 @@
 ---
 import Layout from "./Layout.astro";
 const {frontmatter} = Astro.props;
+
+function formatToCurrency(price: number) {
+  return new Intl.NumberFormat(
+    'ja-JP',
+    { style: 'currency', currency: 'JPY' }
+    ).format(frontmatter.price)
+}
+
 ---
 <Layout title={frontmatter.name}>
   <main>
     <section class="product-description">
       <h1>{frontmatter.name}</h1>
       <p>{frontmatter.description}</p>
-      <p>価格: {frontmatter.price}</p>
+      <p>価格: {formatToCurrency(frontmatter.price)}</p>
       <img src={frontmatter.image} alt={frontmatter.name} width="500px">
     </section>
     <section>

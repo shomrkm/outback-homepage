@@ -12,6 +12,12 @@
   --space-xl: 40px;
   --space-2xl: 48px;
 
+  --fomt-xs: 0.75rem;
+  --fomt-s: 0.875rem;
+  --font-base: 1rem;
+  --font-l: 1.125rem;
+  --font-xl: 1.25rem;
+
   --color-background: #efeeed;
   --color-text-link: #0071c1;
 }
@@ -21,7 +27,9 @@ html {
 }
 /* reset */
 html,
-body
+body {
+  height: 100%;
+}
 div,
 span,
 applet,

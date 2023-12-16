@@ -20,7 +20,7 @@ const products = await Astro.glob("./products/*.md");
 	main {
 		margin: auto;
 		padding: 2rem;
-		max-width: calc(100% - 16rem);
+		max-width: calc(100% - var(--space-s));
 		line-height: 1.6;
 	}
   h1 {
@@ -28,8 +28,8 @@ const products = await Astro.glob("./products/*.md");
 		font-weight: 700;
 		line-height: 1;
 		text-align: center;
-    padding: 1rem;
-    margin-bottom: 2rem;
+    padding: var(--space-s);
+    margin-bottom: var(--space-l);
   }
   .products {
     display: flex;

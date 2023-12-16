@@ -21,8 +21,8 @@ import Layout from '../layouts/Layout.astro';
 <style>
 	main {
 		margin: auto;
-		padding: 2rem;
-		max-width: calc(100% - 16rem);
+		padding: var(--space-m);
+		max-width: calc(100% - var(--space-s));
 		font-size: 20px;
 		line-height: 1.6;
 	}
@@ -33,11 +33,11 @@ import Layout from '../layouts/Layout.astro';
 		text-align: center;
 	}
 	.title {
-		padding: 1.5rem;
+    padding: var(--space-m);
     text-align: center;
 	}
   .instructions {
-		padding: 1.5rem;
+    padding: var(--space-m);
     text-align: center;
   }
 </style>

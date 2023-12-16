@@ -1,0 +1,66 @@
+  ---
+  import { formatToCurrency } from "../../util/formatToCurrency"
+
+  interface Props {
+    title: string;
+    description: string;
+    image: string;
+    price: number;
+    url?: string;
+  }
+  const { title, description, image, price, url } = Astro.props as Props;
+  ---
+
+  <div class="product-card">
+    <a href={url}>
+      <img src={image} alt={title} width="100px">
+      <div class="product-info">
+        <p class="title">{title}</p>
+        <p class="description">{description}</p>
+        <p class="price">{formatToCurrency(price)}</p>
+      </div>
+    </a>
+  </div>
+
+  <style>
+    a {
+      text-decoration: none;
+    }
+    img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+    }
+    .product-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: center;
+      /* background-color: beige; */
+      border: solid;
+      border-color: lightslategray;
+      border-width: thin;
+      margin-bottom: 2rem;
+      width: 400px;
+      height: 440px;
+    }
+    .product-info {
+      padding: var(--space-xs);
+    }
+    .title {
+      font-weight: bold;
+    }
+    .description {
+      color: lightslategray;
+      font-size: var(--font-xs);
+      overflow: hidden;
+      height: 60px;
+      margin-bottom: var(--space-s);
+    }
+    .price {
+      font-size: var(--font-l);
+      font-weight: bold;
+      text-align: right;
+    }
+  </style>

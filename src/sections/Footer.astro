@@ -1,0 +1,27 @@
+---
+import BearLogo from '../components/shared/BearLogo.astro'
+---
+
+<footer class="footer">
+    <BearLogo width='1rem' />
+    <p class="copyrights">Copyright © 2024 Outback Trading Company Ltd. All Rights Reserved.</p>
+</footer>
+
+<style>
+  .footer {
+    position: sticky;
+    top: 100vh;
+    top: 100dvh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #f2e4cd;
+    height: 3rem;
+    width: 100vw;
+    gap: var(--space-s);
+    font-size: var(--space-xs);
+  }
+  .copyrights {
+    margin-right: 3rem;
+  }
+</style>

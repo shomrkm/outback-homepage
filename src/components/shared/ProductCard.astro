@@ -41,9 +41,14 @@
       border: solid;
       border-color: lightslategray;
       border-width: thin;
-      margin-bottom: 2rem;
+      margin-bottom: var(--space-l);
       width: 400px;
       height: 440px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .product-card:hover {
+      box-shadow: 5px 5px 10px 0  rgba(0, 0, 0, 0.2);
+      transform: translate(-5px, -5px);
     }
     .product-info {
       padding: var(--space-xs);

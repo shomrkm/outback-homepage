@@ -20,6 +20,7 @@
 
   --color-background: #efeeed;
   --color-text-link: #0071c1;
+  --color-shadow: rgb(0, 0, 0, 0.2);
 }
 html {
   font-family: system-ui, sans-serif;

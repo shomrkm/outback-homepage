@@ -1,7 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ProductCard from '../components/shared/ProductCard.astro';
-const products = await Astro.glob("./products/*.md");
+import { getCollection } from 'astro:content';
+
+const products = await getCollection('products')
 ---
 
 <Layout title="製品情報">
@@ -11,11 +13,11 @@ const products = await Astro.glob("./products/*.md");
         {
           products.map(product => (
               <ProductCard
-                title={product.frontmatter.name}
-                description={product.frontmatter.description}
-                image={product.frontmatter.image}
-                price={product.frontmatter.price}
-                url={product.url}
+                title={product.data.name}
+                description={product.data.description}
+                image={product.data.image}
+                price={product.data.price}
+                url={`/products/${product.slug}`}
               />
           ))
         }

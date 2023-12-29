@@ -1,0 +1,43 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import { formatToCurrency } from "../../util/formatToCurrency";
+
+export async function getStaticPaths(){
+  const productEntries = await getCollection('products');
+  return productEntries.map(entry => ({
+    params: { slug: entry.slug }, props: { entry },
+  }))
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+<Layout title={entry.data.name}>
+  <main>
+    <section class="product-description">
+      <h1>{entry.data.name}</h1>
+      <p>{entry.data.description}</p>
+      <p>価格: {formatToCurrency(entry.data.price)}</p>
+      <img src={entry.data.image} alt={entry.data.name} width="400px">
+    </section>
+    <section>
+      <Content />
+    </section>
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+		padding: 2rem;
+		max-width: calc(100% - 16rem);
+		line-height: 1.6;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  .product-description {
+    margin-bottom: 2rem;
+  }
+</style>

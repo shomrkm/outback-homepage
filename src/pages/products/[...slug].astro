@@ -1,17 +1,26 @@
 ---
 import { getCollection } from "astro:content";
+import lib from 'zenn-markdown-html';
+import 'zenn-content-css';
 import Layout from "../../layouts/Layout.astro";
 import { formatToCurrency } from "../../util/formatToCurrency";
+
+// TODO: as any を処する
+let markdownHtml = lib
+if(typeof lib !== 'function') {
+  markdownHtml = (markdownHtml as any).default;
+}
 
 export async function getStaticPaths(){
   const productEntries = await getCollection('products');
   return productEntries.map(entry => ({
     params: { slug: entry.slug }, props: { entry },
   }))
-}
+};
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const html = markdownHtml(entry.body);
+
 ---
 <Layout title={entry.data.name}>
   <main>
@@ -22,7 +31,7 @@ const { Content } = await entry.render();
       <img src={entry.data.image} alt={entry.data.name} width="400px">
     </section>
     <section>
-      <Content />
+      <Fragment set:html={html} />
     </section>
   </main>
 </Layout>

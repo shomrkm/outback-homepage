@@ -11,6 +11,9 @@ dependencies:
   astro:
     specifier: ^4.0.3
     version: 4.0.3(typescript@5.3.3)
+  normalize.css:
+    specifier: ^8.0.1
+    version: 8.0.1
   typescript:
     specifier: ^5.3.3
     version: 5.3.3
@@ -2673,6 +2676,10 @@ packages:
   /normalize-path@3.0.0:
     resolution: {integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==}
     engines: {node: '>=0.10.0'}
+    dev: false
+
+  /normalize.css@8.0.1:
+    resolution: {integrity: sha512-qizSNPO93t1YUuUhP22btGOo3chcvDFqFaj2TRybP0DMxkHOCTYwp3n34fel4a31ORXy4m1Xq0Gyqpb5m33qIg==}
     dev: false
 
   /npm-run-path@5.1.0:

@@ -32,28 +32,28 @@ import BearLogo from '../components/shared/BearLogo.astro'
     z-index: 1000;
   }
   .header-logo a {
-    font-weight: bold;
-    font-size: 1.6rem;
+    font-size: var(--font-3xl);
+    line-height: 2rem;
     display: flex;
     align-items: center;
+    gap: var(--space-s);
+    padding: var(--space-s);
     text-decoration: none;
-    padding: 1rem;
-    gap: 1rem;
     color: #745030;
   }
   .nav-menu {
     display: flex;
     margin-left: auto;
     list-style-type: none;
-    gap: 2rem;
-    margin-right: 4rem;
+    gap: var(--space-l);
+    margin-right: var(--space-l);
   }
   .nav-menu-item a {
     font-weight: bold;
     text-decoration: none;
     position: relative;
     display: inline-block;
-    text-decoration: none;
+    color: inherit;
   }
   .nav-menu-item a::after {
     content: '';

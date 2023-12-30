@@ -1,4 +1,6 @@
 ---
+import InfoTitle from './InfoTitle.astro'
+
 interface Props {
   informationList: {
     date: string;
@@ -10,7 +12,7 @@ const { informationList } = Astro.props as Props;
 ---
 
 <div class="information">
-  <h2>お知らせ</h2>
+  <InfoTitle title='お知らせ' sub='Information'  />
   <div class="info-list">
     {
       informationList
@@ -27,9 +29,6 @@ const { informationList } = Astro.props as Props;
 </div>
 
 <style>
-   h2 {
-    font-size: var(--font-2xl)
-  }
   a {
     text-decoration: none;
     font-size: var(--font-base);
@@ -42,6 +41,7 @@ const { informationList } = Astro.props as Props;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: var(--space-m);
   }
   .info-list {
     display: flex;

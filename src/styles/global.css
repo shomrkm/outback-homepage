@@ -21,6 +21,11 @@
   --font-3xl: 1.875rem;
   --font-4xl: 2.25rem;
 
+  --line-base: 1.5rem;
+  --line-h-l: 1.75rem;
+  --line-h-xl: 1.75rem;
+  --line-h-2xl: 2rem;
+
   --color-background: #efeeed;
   --color-text-link: #0071c1;
   --color-shadow: rgb(0, 0, 0, 0.2);

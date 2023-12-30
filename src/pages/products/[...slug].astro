@@ -24,11 +24,18 @@ const html = markdownHtml(entry.body);
 ---
 <Layout title={entry.data.name}>
   <main>
-    <section class="product-description">
-      <h1>{entry.data.name}</h1>
-      <p>{entry.data.description}</p>
-      <p>価格: {formatToCurrency(entry.data.price)}</p>
-      <img src={entry.data.image} alt={entry.data.name} height="400px">
+    <section class="product">
+      <div class="product-description">
+        <h1>{entry.data.name}</h1>
+        <p>{entry.data.description}</p>
+        <div class="price">
+          <span class="kakaku">価格: </span>
+          <span class="price-yen">{formatToCurrency(entry.data.price)}</span>
+        </div>
+      </div>
+      <div class="product-image">
+        <img src={entry.data.image} alt={entry.data.name} height="400px">
+      </div>
     </section>
     <section class="znc"> <!-- Markdown に zenn のスタイルを適用するために znc クラスを付与する必要がある -->
       <Fragment set:html={html} />
@@ -44,9 +51,39 @@ const html = markdownHtml(entry.body);
 		line-height: 1.6;
   }
   h1 {
-    font-size: var(--font-4xl);
+    font-size: var(--font-2xl);
+  }
+  .product {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2rem;
   }
   .product-description {
-    margin-bottom: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+  }
+  .product-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .price {
+    display: flex;
+    align-items: flex-end;
+    color: #ff0037;
+    gap: var(--space-s);
+    margin-top: var(--space-xs);
+  }
+  .kakaku {
+    ront-size: var(--font-l);
+    line-height: var(--line-h-l);
+  }
+  .price-yen {
+    font-size: var(--font-2xl);
+    line-height: var(--line-h-2xl);
   }
 </style>

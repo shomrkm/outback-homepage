@@ -1,0 +1,48 @@
+---
+import 'zenn-content-css';
+import lib from 'zenn-markdown-html';
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+// TODO: as any を処する
+let markdownHtml = lib
+if(typeof lib !== 'function') {
+  markdownHtml = (markdownHtml as any).default;
+}
+
+export async function getStaticPaths(){
+  const informationEntries = await getCollection('information');
+  return informationEntries.map(entry => ({
+    params: { slug: entry.slug }, props: { entry },
+  }))
+};
+
+const { entry } = Astro.props;
+const title = entry.data.title;
+const date = entry.data.date.replaceAll('-', '.');
+const html = markdownHtml(entry.body);
+
+---
+<Layout title={title}>
+  <main>
+    <h1>{`${date} ${title}`}</h1>
+    <section class="znc info-detail"> <!-- Markdown に zenn のスタイルを適用するために znc クラスを付与する必要がある -->
+      <Fragment set:html={html} />
+    </section>
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+		padding: 2rem;
+		max-width: calc(100% - 16rem);
+		line-height: 1.6;
+  }
+  h1 {
+    font-size: var(--font-2xl);
+  }
+  .info-detail {
+    margin-top: var(--space-s);
+  }
+</style>

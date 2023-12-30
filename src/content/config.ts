@@ -10,6 +10,15 @@ const productCollection = defineCollection({
   })
 })
 
+const informationCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    date: z.string(),
+    title: z.string(),
+  })
+})
+
 export const collections = {
   'products': productCollection,
+  'information': informationCollection,
 }

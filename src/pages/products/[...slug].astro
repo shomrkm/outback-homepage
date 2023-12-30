@@ -28,7 +28,7 @@ const html = markdownHtml(entry.body);
       <h1>{entry.data.name}</h1>
       <p>{entry.data.description}</p>
       <p>価格: {formatToCurrency(entry.data.price)}</p>
-      <img src={entry.data.image} alt={entry.data.name} width="400px">
+      <img src={entry.data.image} alt={entry.data.name} height="400px">
     </section>
     <section class="znc"> <!-- Markdown に zenn のスタイルを適用するために znc クラスを付与する必要がある -->
       <Fragment set:html={html} />

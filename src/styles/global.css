@@ -26,9 +26,13 @@
   --line-h-xl: 1.75rem;
   --line-h-2xl: 2rem;
 
-  --color-background: #efeeed;
+  --color-background: red;
   --color-text-link: #0071c1;
   --color-shadow: rgb(0, 0, 0, 0.2);
+
+  --primary-font-color: #745030;
+
+  --primary-color: #f2e4cd;
 }
 
 html {
@@ -173,7 +177,7 @@ body {
   margin-top: 6rem;
   overflow-wrap: break-word;
   color: #23221e;
-  background: #f9f8f7;
+  background: #fafafa;
   font-family: 'Hiragino Kaku Gothic Pro', system-ui, sans-serif;
 }
 

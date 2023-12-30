@@ -23,7 +23,7 @@ import BearLogo from '../components/shared/BearLogo.astro'
     display: flex;
     justify-content: start;
     align-items: center;
-    background-color: #f2e4cd;
+    background-color: var(--primary-color);
     position: fixed;
     top: 0;
     left 0;
@@ -39,7 +39,7 @@ import BearLogo from '../components/shared/BearLogo.astro'
     gap: var(--space-s);
     padding: var(--space-s);
     text-decoration: none;
-    color: #745030;
+    color: var(--primary-font-color);
   }
   .nav-menu {
     display: flex;
@@ -62,7 +62,7 @@ import BearLogo from '../components/shared/BearLogo.astro'
     right: 0;
     bottom: -10px;
     height: 2px;
-    background-color: #745030;
+    background-color: var(--primary-font-color);
     transform: scale(0,1);
     transition: 0.3s;
     transform-origin: left top;

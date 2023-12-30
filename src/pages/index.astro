@@ -1,20 +1,46 @@
 ---
+import 'zenn-content-css';
+import lib from 'zenn-markdown-html';
 import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import InformationList from '../components/shared/InformationList.astro';
+
+// TODO: as any を処する
+let markdownHtml = lib
+if(typeof lib !== 'function') {
+  markdownHtml = (markdownHtml as any).default;
+}
+
+// お知らせで表示する情報群
+const infoEntries = await getCollection('information');
+const infoList = infoEntries.map(info => ({
+  date: info.data.date.replaceAll('-',  '.'),
+  title: info.data.title,
+  slug: info.slug,
+}));
+
 ---
 
 <Layout title="Outback Trading Company Ltd.">
 	<main>
-		<h1>Outback</span></h1>
-    <div class="title">
-      <p>
-        Outback Trading Company Ltd.
-      </p>
-      <p>SINCE 1989</p>
-    </div>
-    <div class="instructions">
-      <p>有限会社アウトバックのホームページにようこそ！</p>
-      <p>アウトバックは「自然」と「人間」が友達になることをお手伝いします。</p>
-    </div>
+    <section>
+      <h1>Outback</span></h1>
+      <div class="title">
+        <p>
+          Outback Trading Company Ltd.
+        </p>
+        <p>SINCE 1989</p>
+      </div>
+      <div class="instructions">
+        <p>有限会社アウトバックのホームページにようこそ！</p>
+        <p>アウトバックは「自然」と「人間」が友達になることをお手伝いします。</p>
+      </div>
+    </section>
+    <section class="information">
+      <InformationList
+        informationList={infoList}
+      />
+    </section>
 	</main>
 </Layout>
 
@@ -32,6 +58,9 @@ import Layout from '../layouts/Layout.astro';
 		line-height: 1;
 		text-align: center;
 	}
+  h2 {
+    font-size: var(--font-2xl)
+  }
 	.title {
     padding: var(--space-m);
     text-align: center;
@@ -39,5 +68,10 @@ import Layout from '../layouts/Layout.astro';
   .instructions {
     padding: var(--space-m);
     text-align: center;
+  }
+  .information {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 </style>

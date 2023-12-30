@@ -1,0 +1,51 @@
+---
+interface Props {
+  informationList: {
+    date: string;
+    title: string;
+    slug: string;
+  }[];
+}
+const { informationList } = Astro.props as Props;
+---
+
+<div class="information">
+  <h2>お知らせ</h2>
+  <div class="info-list">
+    {
+      informationList
+        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+        .map(info => (
+        <li>
+          <a href={`/information/${info.slug}`}>
+            {`${info.date} ${info.title}`}
+          </a>
+        </li>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+   h2 {
+    font-size: var(--font-2xl)
+  }
+  a {
+    text-decoration: none;
+    font-size: var(--font-base);
+  }
+  a:hover {
+    color: var(--color-text-link);
+  }
+  .information {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .info-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+</style>

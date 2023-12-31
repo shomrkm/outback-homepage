@@ -1,7 +1,8 @@
 ---
+import { getCollection } from 'astro:content';
+
 import Layout from '../layouts/Layout.astro';
 import ProductCard from '../components/shared/ProductCard.astro';
-import { getCollection } from 'astro:content';
 
 const products = await getCollection('products')
 ---
@@ -10,35 +11,34 @@ const products = await getCollection('products')
   <main>
     <h1>製品情報</h1>
     <section class="products">
-        {
-          products.map(product => (
-              <ProductCard
-                title={product.data.name}
-                description={product.data.description}
-                image={product.data.image}
-                price={product.data.price}
-                url={`/products/${product.slug}`}
-              />
-          ))
-        }
+      {
+        products.map(product => (
+            <ProductCard
+              title={product.data.name}
+              description={product.data.description}
+              image={product.data.image}
+              price={product.data.price}
+              url={`/products/${product.slug}`}
+            />
+        ))
+      }
     </section>
   </main>
 </Layout>
 
 <style>
 	main {
-		margin: auto;
-		padding: 2rem;
-		max-width: calc(100% - var(--space-s));
-		line-height: 1.6;
+		margin: auto var(--space-2xl);
+		padding: var(--space-l);
+		line-height: var(--line-h-s);
 	}
   h1 {
-		font-size: 2rem;
-		font-weight: 700;
-		line-height: 1;
-		text-align: center;
     padding: var(--space-s);
     margin-bottom: var(--space-l);
+		font-size: var(--font-3xl);
+		line-height: var(--line-h-3xl);
+		font-weight: var(--font-bold);
+		text-align: center;
   }
   .products {
     display: flex;

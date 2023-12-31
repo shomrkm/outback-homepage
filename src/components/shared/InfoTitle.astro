@@ -13,18 +13,19 @@ const { title, sub } = Astro.props as Props;
 
 <style>
    h2 {
-		font-size: 1.5rem;
-		font-weight: 700;
-		line-height: 1;
+		font-size: var(--font-2xl);
+		line-height: var(--line-h-2xl);
+		font-weight: var(--font-bold);
 		text-align: center;
-    margin-bottom: 0.25rem;
+    margin-bottom: var(--space-xxs);
   }
   .title {
-    margin-bottom: 1.25rem;
+    margin-bottom: var(--space-xs);
   }
   .title-sub {
-    font-size: 0.8rem;
-    color: var(--primary-font-color);
+    font-size: var(--font-s);
+    line-height: var(--line-h-s);
+    color: var(--font-color-primary);
 		text-align: center;
   }
 </style>

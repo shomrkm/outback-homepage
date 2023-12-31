@@ -108,17 +108,17 @@ import InfoTitle from '../components/shared/InfoTitle.astro';
 <style>
 	main {
 		margin: auto;
-		padding: 2rem;
+		padding: var(--space-l);
 		max-width: calc(100% - 16rem);
-		line-height: 1.6;
+		line-height: var(--line-h-base);
 	}
 	h1 {
-		font-size: 2rem;
-		font-weight: 700;
-		line-height: 1;
+		font-size: var(--font-3xl);
+		line-height: var(--line-h-3xl);
+		font-weight: var(--font-bold);
 		text-align: center;
-    padding: 1rem;
-    margin-bottom: 2rem;
+    padding: var(--space-s);
+    margin-bottom: var(--space-l);
   }
   .profile, .operations-and-activities, .history {
     display: flex;

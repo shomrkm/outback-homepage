@@ -34,13 +34,20 @@ const { title = "", content = "" } = Astro.props as Props;
   .list-head {
     display: flex;
     color: #aaa69f;
-    width: 200px;
-    min-width: 200px;
+    width: 150px;
     margin: 0;
   }
   .list-body {
     display: flex;
     flex-direction: column;
-    min-width: 200px;
+  }
+  @media screen and (min-width: 636px) {
+    .list-head {
+      width: 200px;
+      min-width: 200px;
+    }
+    .list-body {
+      min-width: 200px;
+    }
   }
 </style>

@@ -28,7 +28,6 @@ const products = await getCollection('products')
 
 <style>
 	main {
-		margin: auto var(--space-2xl);
 		padding: var(--space-l);
 		line-height: var(--line-h-s);
 	}
@@ -45,5 +44,8 @@ const products = await getCollection('products')
     align-items: flex-start;
     gap: var(--space-s);
     flex-wrap: wrap;
+  }
+  @media screen and (min-width: 636px) {
+		margin: auto var(--space-2xl);
   }
 </style>

@@ -35,7 +35,7 @@ const html = markdownHtml(entry.body);
         </div>
       </div>
       <div class="product-image">
-        <img src={entry.data.image} alt={entry.data.name} height="400px">
+        <img src={entry.data.image} alt={entry.data.name} >
       </div>
     </section>
     <section class="znc"> <!-- Markdown に zenn のスタイルを適用するために znc クラスを付与する必要がある -->
@@ -48,7 +48,6 @@ const html = markdownHtml(entry.body);
   main {
     margin: auto;
 		padding: var(--space-xl);
-		max-width: calc(100% - 16rem);
     font-size: var(--font-base);
 		line-height: var(--line-h-base);
   }
@@ -56,8 +55,13 @@ const html = markdownHtml(entry.body);
     font-size: var(--font-2xl);
     margin-bottom: var(--space-xs);
   }
+  img {
+    height: 250px;
+    margin-top: var(--space-m);
+  }
   .product {
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     margin-bottom: var(--space-l);
   }
@@ -88,5 +92,14 @@ const html = markdownHtml(entry.body);
   .price-yen {
     font-size: var(--font-2xl);
     line-height: var(--line-h-2xl);
+  }
+  @media screen and (min-width: 636px) {
+    img {
+      height: 400px;
+      margin: 0;
+    }
+    .product {
+      flex-direction: row;
+    }
   }
 </style>

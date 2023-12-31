@@ -36,12 +36,14 @@ const html = markdownHtml(entry.body);
   main {
     margin: auto;
 		padding: var(--space-l);
-		max-width: calc(100% - 16rem);
   }
   h1 {
     font-size: var(--font-2xl);
   }
   .info-detail {
     margin-top: var(--space-s);
+  }
+  @media screen and (min-width: 636px) {
+		max-width: calc(100% - 16rem);
   }
 </style>

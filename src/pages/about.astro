@@ -108,8 +108,7 @@ import InfoTitle from '../components/shared/InfoTitle.astro';
 <style>
 	main {
 		margin: auto;
-		padding: var(--space-l);
-		max-width: calc(100% - 16rem);
+    font-size: var(--font-xs);
 		line-height: var(--line-h-base);
 	}
 	h1 {
@@ -125,5 +124,12 @@ import InfoTitle from '../components/shared/InfoTitle.astro';
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+  @media screen and (min-width: 636px) {
+    main {
+      padding: var(--space-l);
+      max-width: calc(100% - 16rem);
+      font-size: var(--font-base);
+    }
   }
 </style>

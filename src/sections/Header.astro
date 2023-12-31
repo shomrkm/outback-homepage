@@ -12,13 +12,26 @@ import BearLogo from '../components/shared/BearLogo.astro'
     <li class="nav-menu-item">
       <a href="/products">商品情報</a>
     </li>
-      <li class="nav-menu-item">
-        <a href="/about">会社情報</a>
-      </li>
+    <li class="nav-menu-item">
+      <a href="/about">会社情報</a>
+    </li>
   </div>
+  <div class="hamburger">
+    <span class="line"></span>
+    <span class="line"></span>
+    <span class="line"></span>
+  </div>
+  <script>
+    document.querySelector('.hamburger')?.addEventListener('click', () => {
+      document.querySelector('.nav-menu')?.classList.toggle('expanded');
+    });
+  </script>
 </nav>
 
 <style>
+  li {
+    list-style: none;
+  }
   .header {
     display: flex;
     justify-content: start;
@@ -42,32 +55,83 @@ import BearLogo from '../components/shared/BearLogo.astro'
     color: var(--font-color-primary);
   }
   .nav-menu {
-    display: flex;
-    margin-left: auto;
-    list-style-type: none;
-    gap: var(--space-l);
-    margin-right: var(--space-l);
+    border-top: solid var(--font-color-primary);
+    display: none;
+    position: absolute;
+    top: 6rem;
+    left: 0;
+    width: 100vw;
+    z-index: 0;
+    background-color: var(--primary-color);
+  }
+  .nav-menu-item {
+    text-align: center;
+    padding: var(--space-m);
+    border-bottom: solid var(--font-color-primary);
   }
   .nav-menu-item a {
+    display: block;
     font-weight: var(--font-bold);
     text-decoration: none;
-    position: relative;
-    display: inline-block;
     color: inherit;
   }
   .nav-menu-item a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -10px;
-    height: 2px;
     background-color: var(--font-color-primary);
-    transform: scale(0,1);
-    transition: 0.3s;
-    transform-origin: left top;
   }
-  .nav-menu-item a:hover::after {
-    transform: scale(1,1);
+  .expanded {
+    display: unset;
+  }
+  .hamburger {
+    margin-left: auto;
+    padding-right: var(--space-m);
+    cursor: pointer;
+  }
+  .hamburger .line {
+    display: block;
+    width: 35px;
+    height: 3px;
+    margin-bottom: 6px;
+    background-color: var(--font-color-primary);
+  }
+
+  @media screen and (min-width: 636px) {
+    .nav-menu {
+      position: static;
+      margin-top: 0;
+      display: flex;
+      width: auto;
+      margin-left: auto;
+      list-style-type: none;
+      margin-right: var(--space-l);
+      border: none;
+    }
+    .nav-menu-item {
+      border: none;
+    }
+    .nav-menu-item a {
+      font-weight: var(--font-bold);
+      text-decoration: none;
+      position: relative;
+      display: inline-block;
+      color: inherit;
+    }
+    .nav-menu-item a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -10px;
+      height: 2px;
+      background-color: var(--font-color-primary);
+      transform: scale(0,1);
+      transition: 0.3s;
+      transform-origin: left top;
+    }
+    .nav-menu-item a:hover::after {
+      transform: scale(1,1);
+    }
+    .hamburger {
+      display: none;
+    }
   }
 </style>

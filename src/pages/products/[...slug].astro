@@ -56,7 +56,10 @@ const html = markdownHtml(entry.body);
     margin-bottom: var(--space-xs);
   }
   img {
-    height: 250px;
+    display: block;
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
     margin-top: var(--space-m);
   }
   .product {
@@ -64,6 +67,7 @@ const html = markdownHtml(entry.body);
     flex-direction: column;
     justify-content: space-around;
     margin-bottom: var(--space-l);
+    gap: var(--space-xs);
   }
   .product-description {
     flex: 1;

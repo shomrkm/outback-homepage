@@ -1,10 +1,10 @@
 ---
 import 'zenn-content-css';
 import lib from 'zenn-markdown-html';
-import { getCollection } from 'astro:content';
 
 import Layout from '../layouts/Layout.astro';
-import InformationList from '../components/sections/InformationList.astro';
+import CompanyTop from '../components/sections/CompanyTop.astro';
+import Information from '../components/sections/Information.astro';
 
 // TODO: as any を処する
 let markdownHtml = lib
@@ -12,35 +12,15 @@ if(typeof lib !== 'function') {
   markdownHtml = (markdownHtml as any).default;
 }
 
-// お知らせで表示する情報群
-const infoEntries = await getCollection('information');
-const infoList = infoEntries.map(info => ({
-  date: info.data.date.replaceAll('-',  '.'),
-  title: info.data.title,
-  slug: info.slug,
-}));
-
 ---
 
 <Layout title="Outback Trading Company Ltd.">
 	<main>
     <section>
-      <h1>Outback</span></h1>
-      <div class="title">
-        <p>
-          Outback Trading Company Ltd.
-        </p>
-        <p>SINCE 1989</p>
-      </div>
-      <div class="instructions">
-        <p>有限会社アウトバックのホームページにようこそ！</p>
-        <p>アウトバックは「自然」と「人間」が友達になることをお手伝いします。</p>
-      </div>
+      <CompanyTop />
     </section>
-    <section class="information">
-      <InformationList
-        informationList={infoList}
-      />
+    <section>
+      <Information />
     </section>
 	</main>
 </Layout>
@@ -53,26 +33,4 @@ const infoList = infoEntries.map(info => ({
 		font-size: 20px;
 		line-height: 1.6;
 	}
-	h1 {
-		font-size: 4rem;
-		font-weight: 700;
-		line-height: 1;
-		text-align: center;
-	}
-  h2 {
-    font-size: var(--font-2xl)
-  }
-	.title {
-    padding: var(--space-m);
-    text-align: center;
-	}
-  .instructions {
-    padding: var(--space-m);
-    text-align: center;
-  }
-  .information {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
 </style>

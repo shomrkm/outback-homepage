@@ -1,23 +1,22 @@
 ---
-import InfoTitle from '../shared/InfoTitle.astro'
+import { getCollection } from 'astro:content';
+import InfoTitle from '../shared/InfoTitle.astro';
 
-interface Props {
-  informationList: {
-    date: string;
-    title: string;
-    slug: string;
-  }[];
-}
-const { informationList } = Astro.props as Props;
+const infoEntries = await getCollection('information');
+const infoList = infoEntries.map(info => ({
+    date: info.data.date.replaceAll('-',  '.'),
+    title: info.data.title,
+    slug: info.slug,
+  }))
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
 ---
 
 <div class="information">
   <InfoTitle title='お知らせ' sub='Information'  />
   <div class="info-list">
     {
-      informationList
-        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-        .map(info => (
+      infoList.map(info => (
         <li>
           <a href={`/information/${info.slug}`}>
             {`${info.date} ${info.title}`}

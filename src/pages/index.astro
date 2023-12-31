@@ -1,9 +1,10 @@
 ---
 import 'zenn-content-css';
 import lib from 'zenn-markdown-html';
-import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
-import InformationList from '../components/shared/InformationList.astro';
+
+import Layout from '../layouts/Layout.astro';
+import InformationList from '../components/sections/InformationList.astro';
 
 // TODO: as any を処する
 let markdownHtml = lib

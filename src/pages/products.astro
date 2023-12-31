@@ -5,7 +5,7 @@ import Layout from '../layouts/Layout.astro';
 import ProductCard from '../components/shared/ProductCard.astro';
 
 const entries = await getCollection('products')
-const products = entries.sort((a, b) => a.slug - b.slug);
+const products = entries.sort();  // Markdown のファイル名順に表示する
 ---
 
 <Layout title="製品情報">

@@ -5,7 +5,7 @@ import BearLogo from '../components/shared/BearLogo.astro'
 <nav class="header">
   <div class="header-logo">
       <a href="/">
-        <BearLogo /> OUTBACK
+        <BearLogo /> <span>OUTBACK</span>
       </a>
   </div>
   <div class="nav-menu">
@@ -40,13 +40,13 @@ import BearLogo from '../components/shared/BearLogo.astro'
     position: fixed;
     top: 0;
     left 0;
-    height: 6rem;
+    height: var(--header-height);
     width: 100vw;
     z-index: 1000;
   }
   .header-logo a {
-    font-size: var(--font-3xl);
-    line-height: var(--line-h-3xl);
+    font-size: var(--font-2xl);
+    line-height: var(--line-h-2xl);
     display: flex;
     align-items: center;
     gap: var(--space-s);
@@ -58,7 +58,7 @@ import BearLogo from '../components/shared/BearLogo.astro'
     border-top: solid var(--font-color-primary);
     display: none;
     position: absolute;
-    top: 6rem;
+    top: var(--header-height);
     left: 0;
     width: 100vw;
     z-index: 0;

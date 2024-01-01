@@ -37,6 +37,8 @@
   --line-h-5xl: 1;
   --line-h-6xl: 1;
 
+  --header-height: 5rem;
+
   --color-text-link: #0071c1;
   --color-shadow: rgb(0, 0, 0, 0.2);
 
@@ -185,7 +187,6 @@ table {
 
 /* normalize */
 body {
-  margin-top: 6rem;
   overflow-wrap: break-word;
   color: #23221e;
   background: #fafafa;

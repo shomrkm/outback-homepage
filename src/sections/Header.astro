@@ -55,19 +55,17 @@ import BearLogo from '../components/shared/BearLogo.astro'
     color: var(--font-color-primary);
   }
   .nav-menu {
-    border-top: solid var(--font-color-primary);
     display: none;
     position: absolute;
-    top: var(--header-height);
-    left: 0;
-    width: 100vw;
-    z-index: 0;
+    top: calc(var(--header-height) + 0.5rem);
+    left: 0.5rem;
+    width: calc(100vw - 1rem);
     background-color: var(--primary-color);
+    border-radius: 20px;
   }
   .nav-menu-item {
     text-align: center;
     padding: var(--space-m);
-    border-bottom: solid var(--font-color-primary);
   }
   .nav-menu-item a {
     display: block;

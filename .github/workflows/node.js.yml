@@ -43,3 +43,7 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
+
+      - name: Check astro build
+        run: pnpm build
+        

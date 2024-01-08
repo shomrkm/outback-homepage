@@ -16,5 +16,9 @@
     "typescript": "^5.3.3",
     "zenn-content-css": "^0.1.150",
     "zenn-markdown-html": "^0.1.150"
+  },
+  "devDependencies": {
+    "prettier": "^3.1.1",
+    "prettier-plugin-astro": "^0.12.3"
   }
 }

@@ -3,24 +3,21 @@ interface Props {
   title?: string;
   content?: string | string[];
 }
-const { title = "", content = "" } = Astro.props as Props;
+const { title = '', content = '' } = Astro.props as Props;
 ---
 
 <li class="list">
   <h3 class="list-head">{title}</h3>
   <div class="list-body">
-    {Array.isArray(content) 
-      ? content.map((item) => <p>{item}</p>) 
-      : <p>{content}</p>
-    }
+    {Array.isArray(content) ? content.map((item) => <p>{item}</p>) : <p>{content}</p>}
   </div>
 </li>
 
 <style>
   h3 {
-		font-weight: var(--font-bold);
-		text-align: center;
-	}
+    font-weight: var(--font-bold);
+    text-align: center;
+  }
   li {
     list-style-type: none;
     border-top: solid 1px #edebe6;

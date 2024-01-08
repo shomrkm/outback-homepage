@@ -4,8 +4,8 @@ import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import ProductCard from '../components/shared/ProductCard.astro';
 
-const entries = await getCollection('products')
-const products = entries.sort();  // Markdown のファイル名順に表示する
+const entries = await getCollection('products');
+const products = entries.sort(); // Markdown のファイル名順に表示する
 ---
 
 <Layout title="製品情報">
@@ -13,14 +13,14 @@ const products = entries.sort();  // Markdown のファイル名順に表示す�
     <h1>製品情報</h1>
     <section class="products">
       {
-        products.map(product => (
-            <ProductCard
-              title={product.data.name}
-              description={product.data.description}
-              image={product.data.image}
-              price={product.data.price}
-              url={`/products/${product.slug}`}
-            />
+        products.map((product) => (
+          <ProductCard
+            title={product.data.name}
+            description={product.data.description}
+            image={product.data.image}
+            price={product.data.price}
+            url={`/products/${product.slug}`}
+          />
         ))
       }
     </section>
@@ -28,17 +28,17 @@ const products = entries.sort();  // Markdown のファイル名順に表示す�
 </Layout>
 
 <style>
-	main {
-		padding: var(--space-l);
-		line-height: var(--line-h-s);
-	}
+  main {
+    padding: var(--space-l);
+    line-height: var(--line-h-s);
+  }
   h1 {
     padding: var(--space-s);
     margin-bottom: var(--space-l);
-		font-size: var(--font-3xl);
-		line-height: var(--line-h-3xl);
-		font-weight: var(--font-bold);
-		text-align: center;
+    font-size: var(--font-3xl);
+    line-height: var(--line-h-3xl);
+    font-weight: var(--font-bold);
+    text-align: center;
   }
   .products {
     display: flex;
@@ -47,6 +47,6 @@ const products = entries.sort();  // Markdown のファイル名順に表示す�
     flex-wrap: wrap;
   }
   @media screen and (min-width: 636px) {
-		margin: auto var(--space-2xl);
+    margin: auto var(--space-2xl);
   }
 </style>

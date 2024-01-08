@@ -1,27 +1,28 @@
 ---
 import 'zenn-content-css';
 import lib from 'zenn-markdown-html';
-import { getCollection } from "astro:content";
-import Layout from "../../layouts/Layout.astro";
-import { formatToCurrency } from "../../util/formatToCurrency";
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { formatToCurrency } from '../../util/formatToCurrency';
 
 // TODO: as any を処する
-let markdownHtml = lib
-if(typeof lib !== 'function') {
+let markdownHtml = lib;
+if (typeof lib !== 'function') {
   markdownHtml = (markdownHtml as any).default;
 }
 
-export async function getStaticPaths(){
+export async function getStaticPaths() {
   const productEntries = await getCollection('products');
-  return productEntries.map(entry => ({
-    params: { slug: entry.slug }, props: { entry },
-  }))
-};
+  return productEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
 
 const { entry } = Astro.props;
 const html = markdownHtml(entry.body);
-
 ---
+
 <Layout title={entry.data.name}>
   <main>
     <section class="product">
@@ -29,16 +30,17 @@ const html = markdownHtml(entry.body);
         <h1>{entry.data.name}</h1>
         <p>{entry.data.description}</p>
         <div class="price">
-          <span class="kakaku">価格: </span>
+          <span class="kakaku">価格:</span>
           <span class="price-yen">{formatToCurrency(entry.data.price)}</span>
           <span class="kakaku">(税込)</span>
         </div>
       </div>
       <div class="product-image">
-        <img src={entry.data.image} alt={entry.data.name} >
+        <img src={entry.data.image} alt={entry.data.name} />
       </div>
     </section>
-    <section class="znc"> <!-- Markdown に zenn のスタイルを適用するために znc クラスを付与する必要がある -->
+    <section class="znc">
+      <!-- Markdown に zenn のスタイルを適用するために znc クラスを付与する必要がある -->
       <Fragment set:html={html} />
     </section>
   </main>
@@ -47,9 +49,9 @@ const html = markdownHtml(entry.body);
 <style>
   main {
     margin: auto;
-		padding: var(--space-xl);
+    padding: var(--space-xl);
     font-size: var(--font-base);
-		line-height: var(--line-h-base);
+    line-height: var(--line-h-base);
   }
   h1 {
     font-size: var(--font-2xl);

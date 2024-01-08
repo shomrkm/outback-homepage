@@ -1,12 +1,13 @@
 ---
-import BearLogo from '../components/shared/BearLogo.astro'
+import BearLogo from '../components/shared/BearLogo.astro';
 ---
 
 <nav class="header">
   <div class="header-logo">
-      <a href="/">
-        <BearLogo /> <span>OUTBACK</span>
-      </a>
+    <a href="/">
+      <BearLogo />
+      <span>OUTBACK</span>
+    </a>
   </div>
   <div class="nav-menu">
     <li class="nav-menu-item">
@@ -39,7 +40,7 @@ import BearLogo from '../components/shared/BearLogo.astro'
     background-color: var(--primary-color);
     position: fixed;
     top: 0;
-    left 0;
+    left: 0;
     height: var(--header-height);
     width: 100vw;
     z-index: 1000;
@@ -121,12 +122,12 @@ import BearLogo from '../components/shared/BearLogo.astro'
       bottom: -10px;
       height: 2px;
       background-color: var(--font-color-primary);
-      transform: scale(0,1);
+      transform: scale(0, 1);
       transition: 0.3s;
       transform-origin: left top;
     }
     .nav-menu-item a:hover::after {
-      transform: scale(1,1);
+      transform: scale(1, 1);
     }
     .hamburger {
       display: none;

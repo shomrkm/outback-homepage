@@ -4,24 +4,22 @@ import { getCollection } from 'astro:content';
 import InfoTitle from '../shared/InfoTitle.astro';
 
 const infoEntries = await getCollection('information');
-const infoList = infoEntries.map(info => ({
-    date: info.data.date.replaceAll('-',  '.'),
+const infoList = infoEntries
+  .map((info) => ({
+    date: info.data.date.replaceAll('-', '.'),
     title: info.data.title,
     slug: info.slug,
   }))
   .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-
 ---
 
 <div class="information">
-  <InfoTitle title='お知らせ' sub='Information'  />
+  <InfoTitle title="お知らせ" sub="Information" />
   <div class="info-list">
     {
-      infoList.map(info => (
+      infoList.map((info) => (
         <li>
-          <a href={`/information/${info.slug}`}>
-            {`${info.date} ${info.title}`}
-          </a>
+          <a href={`/information/${info.slug}`}>{`${info.date} ${info.title}`}</a>
         </li>
       ))
     }

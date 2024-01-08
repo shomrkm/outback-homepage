@@ -1,32 +1,34 @@
 ---
 import 'zenn-content-css';
 import lib from 'zenn-markdown-html';
-import { getCollection } from "astro:content";
-import Layout from "../../layouts/Layout.astro";
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
 
 // TODO: as any を処する
-let markdownHtml = lib
-if(typeof lib !== 'function') {
+let markdownHtml = lib;
+if (typeof lib !== 'function') {
   markdownHtml = (markdownHtml as any).default;
 }
 
-export async function getStaticPaths(){
+export async function getStaticPaths() {
   const informationEntries = await getCollection('information');
-  return informationEntries.map(entry => ({
-    params: { slug: entry.slug }, props: { entry },
-  }))
-};
+  return informationEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
 
 const { entry } = Astro.props;
 const title = entry.data.title;
 const date = entry.data.date.replaceAll('-', '.');
 const html = markdownHtml(entry.body);
-
 ---
+
 <Layout title={title}>
   <main>
     <h1>{`${date} ${title}`}</h1>
-    <section class="znc info-detail"> <!-- Markdown に zenn のスタイルを適用するために znc クラスを付与する必要がある -->
+    <section class="znc info-detail">
+      <!-- Markdown に zenn のスタイルを適用するために znc クラスを付与する必要がある -->
       <Fragment set:html={html} />
     </section>
   </main>
@@ -35,7 +37,7 @@ const html = markdownHtml(entry.body);
 <style>
   main {
     margin: auto;
-		padding: var(--space-l);
+    padding: var(--space-l);
   }
   h1 {
     font-size: var(--font-2xl);
@@ -44,6 +46,6 @@ const html = markdownHtml(entry.body);
     margin-top: var(--space-s);
   }
   @media screen and (min-width: 636px) {
-		max-width: calc(100% - 16rem);
+    max-width: calc(100% - 16rem);
   }
 </style>

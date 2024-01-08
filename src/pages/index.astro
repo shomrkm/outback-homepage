@@ -7,30 +7,29 @@ import CompanyTop from '../components/sections/CompanyTop.astro';
 import Information from '../components/sections/Information.astro';
 
 // TODO: as any を処する
-let markdownHtml = lib
-if(typeof lib !== 'function') {
+let markdownHtml = lib;
+if (typeof lib !== 'function') {
   markdownHtml = (markdownHtml as any).default;
 }
-
 ---
 
 <Layout title="Outback Trading Company Ltd.">
-	<main>
+  <main>
     <section>
       <CompanyTop />
     </section>
     <section>
       <Information />
     </section>
-	</main>
+  </main>
 </Layout>
 
 <style>
-	main {
-		margin: auto;
-		padding: var(--space-m);
-		max-width: calc(100% - var(--space-s));
-		font-size: var(--font-base);
-		line-height: var(--line-h-base);
-	}
+  main {
+    margin: auto;
+    padding: var(--space-m);
+    max-width: calc(100% - var(--space-s));
+    font-size: var(--font-base);
+    line-height: var(--line-h-base);
+  }
 </style>
